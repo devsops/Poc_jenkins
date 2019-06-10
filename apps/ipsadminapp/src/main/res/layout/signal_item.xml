@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/listPreferredItemHeightSmall"
+    android:background="@android:color/white"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:weightSum="100">
+
+    <CheckBox
+        android:id="@+id/signalcheckbox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="0dp"
+        android:layout_weight="13" />
+
+    <TextView
+        android:gravity="start"
+        android:id="@+id/signal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="57"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="0dp"
+        android:textSize="12sp" />
+
+    <TextView
+        android:visibility="visible"
+        android:id="@+id/signalrssi"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:layout_weight="20"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/signalimage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:src="@drawable/ic_network_wifi_black_24dp" />
+
+</LinearLayout>

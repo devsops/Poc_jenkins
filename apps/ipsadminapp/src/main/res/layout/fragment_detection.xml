@@ -1,0 +1,92 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bosch.pai.proximitymarketingadmin.fragments.DetectionFragment">
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <Button
+            android:id="@+id/sitedetection"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="30dp"
+            android:layout_weight="50"
+            android:background="@drawable/green_circle_indicator"
+            android:text="@string/start_site_detection"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/locationdetection"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="30dp"
+            android:layout_weight="50"
+            android:background="@drawable/green_circle_indicator"
+            android:text="@string/start_location_detection"
+            android:textColor="@android:color/white" />
+
+        <!--   <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="0dp"
+               android:layout_weight="50"
+               android:orientation="horizontal"
+               android:weightSum="100">
+
+               <Button
+                   android:id="@+id/startsite"
+                   android:layout_width="0dp"
+                   android:layout_height="match_parent"
+                   android:layout_margin="30dp"
+                   android:layout_weight="50"
+                   android:text="@string/start_site_detection" />
+
+               <Button
+                   android:id="@+id/stopsite"
+                   android:layout_width="0dp"
+                   android:layout_height="match_parent"
+                   android:layout_margin="30dp"
+                   android:layout_weight="50"
+                   android:text="@string/stop_site_detection" />
+           </LinearLayout>
+
+
+           <LinearLayout
+               android:id="@+id/startstoplayout"
+               android:layout_width="match_parent"
+               android:layout_height="0dp"
+               android:layout_weight="50"
+               android:orientation="horizontal"
+               android:weightSum="100">
+
+               <Button
+                   android:id="@+id/startlocation"
+                   android:layout_width="0dp"
+                   android:layout_height="match_parent"
+                   android:layout_margin="30dp"
+                   android:layout_weight="50"
+                   android:text="@string/start_location_detection" />
+
+               <Button
+                   android:id="@+id/stoplocation"
+                   android:layout_width="0dp"
+                   android:layout_height="match_parent"
+                   android:layout_margin="30dp"
+                   android:layout_weight="50"
+                   android:text="@string/stop_location_detection" />
+           </LinearLayout>
+ -->
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/detectionrv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout" />
+
+</RelativeLayout>

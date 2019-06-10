@@ -1,0 +1,97 @@
+buildscript {
+    repositories {
+        //Required repos
+        jcenter {
+            url "http://jcenter.bintray.com/"
+        }//used for jfrog
+        mavenCentral()
+
+    }
+    dependencies {
+        //Required dependency for spring-boot plugin
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.10.RELEASE'
+
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply from: "${rootDir}/include/gradle-plugins/artifactory-jar-publish.gradle"
+apply from: "${rootDir}/include/codecoverage/java_code_coverage.gradle"
+
+group = 'com.bosch.pai.retail.core.server.session'
+
+bootRepackage {
+    enabled = false
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web:1.5.10.RELEASE'
+    compile group: 'org.mongodb', name: 'mongo-java-driver', version:'3.6.2'
+    compile ('com.google.code.gson:gson:2.8.0')
+    compile ('org.apache.solr:solr-solrj:6.4.2')
+    compile ('net.sf.proguard:proguard-gradle:5.3.3')
+    compile project(':libraries:java:commonrm')
+    compile project(':libraries:java:dbmodel')
+    compile project(':libraries:java:sessionrm')
+    compile project(':libraries:java:encodermodel')
+    compile project(':libraries:java:configmodel')
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.5.10.RELEASE'
+    testCompile group: 'junit', name: 'junit', version:'4.12'
+    testCompile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
+    testCompile group: "de.flapdoodle.embed", name: "de.flapdoodle.embed.mongo", version: "2.2.0"
+}
+
+springBoot {
+    customConfiguration ='runtime'
+}
+configurations {
+    runtime.exclude group: "net.sf.proguard"
+}
+
+task proguard(type: proguard.gradle.ProGuardTask) {
+    configuration 'proguard.txt'
+    libraryjars configurations.compile.findAll() { it.name.startsWith("gson") }
+    libraryjars configurations.compile.findAll() { it.name.startsWith("spring") }
+    libraryjars configurations.compile.findAll() { it.name.startsWith("solr") }
+    libraryjars configurations.compile.findAll() { it.name.startsWith("mongo") }
+    libraryjars configurations.compile.findAll() { it.name.startsWith("slf4j") }
+    libraryjars configurations.compile.findAll() { it.absolutePath.contains("commonrm") }
+    libraryjars configurations.compile.findAll() { it.absolutePath.contains("dbmodel") }
+    libraryjars configurations.compile.findAll() { it.absolutePath.contains("sessionrm") }
+    libraryjars configurations.compile.findAll() { it.absolutePath.contains("encodermodel") }
+    libraryjars configurations.compile.findAll() { it.absolutePath.contains("configmodel") }
+    injars 'build/libs/Session-'+"${version}"+'.jar'
+    outjars 'build/libs/proguard-session.jar'
+}
+
+task extractArtifact(dependsOn: proguard) {
+    doLast {
+
+        def outputDirName = "${buildDir}/tmp/proguard"
+        def outputDir = file(outputDirName)
+        assert outputDir.deleteDir()  // cleanup workspace
+
+        def zipFile = file("${buildDir}/libs/proguard-session.jar")
+
+        copy {
+            from zipTree(zipFile)
+            into outputDir
+        }
+
+        assert zipFile.delete()
+    }
+}
+
+task proguardJar(type: Jar, dependsOn: extractArtifact) {
+    def inputDirName = "${buildDir}/tmp/proguard"
+    from file("${inputDirName}")
+    file("${inputDirName}").deleteOnExit()
+}
+
+task repackProguardJar(type: BootRepackage, dependsOn: proguardJar ) {
+    withJarTask = proguardJar
+
+}
+
+build.finalizedBy(repackProguardJar)

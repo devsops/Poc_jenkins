@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/IPSMode">
+        <menu>
+            <item
+                android:id="@+id/nav_training"
+                android:icon="@drawable/ic_train"
+                android:title="@string/nav_training" />
+            <item
+                android:id="@+id/nav_detection"
+                android:icon="@drawable/ic_detect"
+                android:title="@string/nav_detection" />
+        </menu>
+    </item>
+
+    <item
+        android:title="@string/tuning_configuration"
+        android:visible="false">
+        <menu>
+            <item
+                android:id="@+id/nav_tuning_configuration"
+                android:icon="@drawable/ic_admin_black_24dp"
+                android:title="@string/nav_tuning_configuration" />
+        </menu>
+    </item>
+
+    <item
+        android:checkableBehavior="single"
+        android:title="@string/analytics">
+        <menu>
+            <item
+                android:id="@+id/nav_dwelltime"
+                android:icon="@drawable/ic_dwell"
+                android:title="@string/nav_dwelltime" />
+            <item
+                android:id="@+id/nav_heatmap"
+                android:icon="@drawable/ic_heat"
+                android:title="@string/nav_heatmap" />
+            <item
+                android:id="@+id/nav_offeranalytics"
+                android:icon="@drawable/ic_admin_black_24dp"
+                android:title="@string/nav_offeranalytics"
+                android:visible="false" />
+            <item
+                android:id="@+id/nav_entryexit"
+                android:icon="@drawable/ic_heat"
+                android:title="@string/nav_entryexit"
+                android:visible="true" />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/nav_settings" />
+
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/ic_exit"
+        android:title="@string/nav_logout" />
+
+    <item
+        android:id="@+id/aboutUS"
+        android:icon="@drawable/ic_info"
+        android:title="@string/about_us" />
+</menu>

@@ -1,0 +1,38 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <include
+        android:id="@+id/entryexit_storelayout"
+        layout="@layout/store_namelist_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp" />
+
+    <include
+        android:id="@+id/entryexit_date_layout"
+        layout="@layout/datepicker_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/entryexit_storelayout" />
+
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/entryexit_barchart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/dummyData"
+        android:layout_below="@+id/entryexit_date_layout" />
+
+    <TextView
+        android:id="@+id/dummyData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:text="*Dummy analytics data" />
+</RelativeLayout>

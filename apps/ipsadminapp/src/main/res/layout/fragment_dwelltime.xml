@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <include
+        android:id="@+id/dwelltime_date_layout"
+        layout="@layout/datepicker_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible" />
+
+    <include
+        android:id="@+id/dwelltime_storelayout"
+        layout="@layout/store_namelist_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dwelltime_date_layout"
+        android:visibility="visible" />
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/dwelltime_piechart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/dummyData"
+        android:layout_below="@+id/dwelltime_storelayout"
+        android:layout_margin="5dp"
+        android:padding="5dp" />
+
+    <TextView
+        android:id="@+id/dummyData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:text="*Dummy analytics data" />
+</RelativeLayout>

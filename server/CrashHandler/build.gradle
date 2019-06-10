@@ -1,0 +1,78 @@
+buildscript {
+    repositories {
+        //Required repos
+        mavenCentral()
+
+    }
+    dependencies {
+        //Required dependency for spring-boot plugin
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.10.RELEASE'
+
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply from: "${rootDir}/include/gradle-plugins/artifactory-jar-publish.gradle"
+
+bootRepackage {
+    enabled = false
+}
+
+group = 'com.bosch.pai.retail.core.server.crashhandler'
+
+dependencies {
+    compile project (':libraries:java:commonrm')
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile ('net.sf.proguard:proguard-gradle:5.3.3')
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.4.5.RELEASE'
+    testCompile group: 'junit', name: 'junit', version:'4.12'
+    testCompile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
+}
+
+springBoot {
+    customConfiguration ='runtime'
+}
+configurations {
+    runtime.exclude group: "net.sf.proguard"
+}
+
+task proguard(type: proguard.gradle.ProGuardTask) {
+    configuration 'proguard.txt'
+    libraryjars configurations.compile.findAll() { it.name.startsWith("spring") }
+    libraryjars configurations.compile.findAll() { it.name.startsWith("slf4j") }
+    libraryjars configurations.compile.findAll() { it.absolutePath.contains("commonrm") }
+    injars 'build/libs/CrashHandler-'+"${version}"+'.jar'
+    outjars 'build/libs/proguard-crashhandler.jar'
+}
+
+task extractArtifact(dependsOn: proguard) {
+    doLast {
+
+        def outputDirName = "${buildDir}/tmp/proguard"
+        def outputDir = file(outputDirName)
+        assert outputDir.deleteDir()  // cleanup workspace
+
+        def zipFile = file("${buildDir}/libs/proguard-crashhandler.jar")
+
+        copy {
+            from zipTree(zipFile)
+            into outputDir
+        }
+
+        assert zipFile.delete()
+    }
+}
+
+task proguardJar(type: Jar, dependsOn: extractArtifact) {
+    def inputDirName = "${buildDir}/tmp/proguard"
+    from file("${inputDirName}")
+    file("${inputDirName}").deleteOnExit()
+}
+
+task repackProguardJar(type: BootRepackage, dependsOn: proguardJar ) {
+    withJarTask = proguardJar
+
+}
+
+build.finalizedBy(repackProguardJar)

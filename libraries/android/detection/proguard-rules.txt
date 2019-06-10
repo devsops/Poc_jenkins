@@ -1,0 +1,76 @@
+##*********** Proximity Marketing Admin Library ************#
+#Warnings
+-dontwarn java.awt.**
+-dontwarn com.bosch.pai.**
+-dontwarn javax.**
+-dontwarn com.license4j.**
+-dontwarn groovy.lang.**
+-dontwarn org.gradle.api.**
+-dontwarn org.gradle.logging.**
+
+-encryptstrings "**"
+-adaptresourcefilenames **.crt, **.xml
+
+-keep class android.** {*;}
+-keep class com.android.build.gradle.internal.** {*;}
+-keep class com.fasterxml.** {*;}
+-keep class javax.** { *; }
+-keep class java.** { *; }
+-keep class org.** { *; }
+-keep class libsvm.svm_node {*;}
+-keep class libsvm.svm_model {*;}
+-keep class libsvm.svm_parameter {*;}
+-keep class com.bosch.pai.R {*;}
+-keep class org.slf4j.** {*;}
+-keepattributes InnerClasses
+
+
+# Gson
+-keep class sun.misc.Unsafe { *; }
+-keep interface com.google.gson.** { *; }
+-keep class com.google.gson.** { *; }
+-keep public class com.google.gson.internal.bind.TypeAdapters {public *;}
+-keepclassmembers enum * { *; }
+
+# We only want obfuscation
+-keepattributes InnerClasses
+-keepattributes Signature
+-keepattributes Exceptions
+-keepattributes *Annotation*
+-keepattributes EnclosingMethod
+
+-keep public class com.bosch.pai.IPSApplication {public *;}
+
+#interfaces
+-keep public interface com.bosch.pai.IeroIPSPlatform {*;}
+-keep public interface com.bosch.pai.IeroIPSPlatformListener {*;}
+
+# API Start points
+-keep public final class com.bosch.pai.ipswrapper.IPSPlatformFactory {
+    public static synchronized com.bosch.pai.IeroIPSPlatform getInstance(android.content.Context, com.bosch.pai.ipswrapper.IPSPlatformFactory$PlatformType, com.bosch.pai.IeroIPSPlatformListener);
+}
+
+#enums
+-keep public enum com.bosch.pai.ipswrapper.IPSPlatformFactory$PlatformType {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+-keep public enum com.bosch.pai.retail.pmadminlib.Util$UserType {*;}
+-keep public class com.bosch.pai.ipswrapper.Config$Key {*;}
+-keep public class com.bosch.pai.ipswrapper.Config$SensorType {*;}
+-keep public class com.bosch.pai.detection.models.StatusMessage {public *;}
+-keep public enum com.bosch.pai.detection.models.StatusMessage$STATUS {*;}
+-keepclassmembers enum com.bosch.pai.detection.models.StatusMessage$STATUS {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+-keep public enum com.bosch.pai.bearing.datamodel.apimodels.configuration.BearingConfiguration$DetectionLevel{*;}
+-keep public enum com.bosch.pai.bearing.datamodel.apimodels.configuration.BearingConfiguration$SensorType {*;}
+-keep public enum com.bosch.pai.bearing.config.ConfigurationSettings$ActiveMode {*;}
+
+# models
+-keep public class com.bosch.pai.detection.models.StatusMessage {public *;}
+
+#supportlib
+-dontwarn AppletFrame
+-dontwarn svm_toy

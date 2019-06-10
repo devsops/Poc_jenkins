@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:clipOrientation="vertical"
+    android:gravity="top">
+
+    <size
+        android:width="24dp"
+        android:height="24dp" />
+
+    <corners
+        android:bottomLeftRadius="100000dp"
+        android:bottomRightRadius="100000dp"
+        android:topLeftRadius="0dp"
+        android:topRightRadius="0dp" />
+
+    <solid android:color="#469985" />
+
+</shape>

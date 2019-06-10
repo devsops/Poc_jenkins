@@ -1,0 +1,177 @@
+##*********** Proximity Marketing Admin Library ************#
+#Warnings
+-dontwarn java.awt.**
+-dontwarn com.bosch.pai.ipsadmin.**
+-dontwarn javax.**
+-dontwarn com.license4j.**
+-dontwarn groovy.lang.**
+-dontwarn org.gradle.api.**
+-dontwarn org.gradle.logging.**
+
+-encryptstrings "**"
+-adaptresourcefilenames **.crt, **.xml
+
+-keep class android.** {*;}
+-keep class com.android.build.gradle.internal.** {*;}
+-keep class com.fasterxml.** {*;}
+-keep class javax.** { *; }
+-keep class java.** { *; }
+-keep class org.** { *; }
+-keep class libsvm.svm_node {*;}
+-keep class libsvm.svm_model {*;}
+-keep class libsvm.svm_parameter {*;}
+-keep class com.bosch.pai.ipsadmin.R {*;}
+-keep class org.slf4j.** {*;}
+-keepattributes InnerClasses
+
+
+# Gson
+-keep class sun.misc.Unsafe { *; }
+-keep interface com.google.gson.** { *; }
+-keep class com.google.gson.** { *; }
+-keep public class com.google.gson.internal.bind.TypeAdapters {public *;}
+-keepclassmembers enum * { *; }
+
+# We only want obfuscation
+-keepattributes InnerClasses
+-keepattributes Signature
+-keepattributes Exceptions
+-keepattributes *Annotation*
+-keepattributes EnclosingMethod
+
+#interfaces
+
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.analytics.callback.IAnalyticsCallbacks {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.analytics.Analytics {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.authentication.AuthenticationCallback {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.configuration.callback.IConfigurationCallback {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.configuration.ConfigurationAPI {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.detection.callback.IBearingDetectionCallback {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.detection.DetectionFromServer {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.detection.DetectionFromLocal {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.training.callback.IBearingTrainingCallback {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.training.Training {*;}
+
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.analytics.callback.IAnalyticsCallbacks$IAuthenticationListener {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.analytics.callback.IAnalyticsCallbacks$IDwelltimeListener {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.analytics.callback.IAnalyticsCallbacks$IHeatmapListener {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.analytics.callback.IAnalyticsCallbacks$IOfferAnalyticstListener {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.analytics.callback.IAnalyticsCallbacks$IEntryExitListener {*;}
+
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.configuration.callback.IConfigurationCallback$ISaveSiteConfigurationCallback{*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.configuration.callback.IConfigurationCallback$IGetSiteConfigurationCallback{*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.configuration.callback.IConfigurationCallback$ISaveStoreConfigurationCallback{*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.configuration.callback.IConfigurationCallback$IGetStoreConfigurationCallback{*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.configuration.callback.IConfigurationCallback$ISaveStoreLocationsCallback{*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.configuration.callback.IConfigurationCallback$IGetLocationCateDeptBrandCallback{*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.configuration.callback.IConfigurationCallback$ICateDeptBrandsCallback{*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.configuration.callback.IConfigurationCallback$ISaveLocationCateDeptBrandCallback{*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.configuration.callback.IConfigurationCallback$IGetBaymapForSite{*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.configuration.callback.IConfigurationCallback$ISaveBaymapForSite{*;}
+
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.detection.callback.IBearingDetectionCallback$ISetBearingServerEndpointForDetection{*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.detection.callback.IBearingDetectionCallback$IBearingStartSiteDetectionListener{*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.detection.callback.IBearingDetectionCallback$IBearingStopSiteDetectionListener{*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.detection.callback.IBearingDetectionCallback$IBearingStartLocationDetectionListener{*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.detection.callback.IBearingDetectionCallback$IBearingStopLocationDetectionListener{*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.detection.callback.IBearingDetectionCallback$IDownloadSiteSnapshot{*;}
+
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.training.callback.IBearingTrainingCallback$IDownloadSiteLocationsListener {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.training.callback.IBearingTrainingCallback$IBearingSetServerEndpointListener {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.training.callback.IBearingTrainingCallback$IBearingSiteSignalMergeListener {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.training.callback.IBearingTrainingCallback$IBearingOnLocationTrainAndRetrain {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.training.callback.IBearingTrainingCallback$IBearingOnUpload {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.training.callback.IBearingTrainingCallback$IBearingSuncWithServerListener {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.training.callback.IBearingTrainingCallback$IUtilityGetSiteListListenerFromServer {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.training.callback.IBearingTrainingCallback$IUtilityGetLocationListListenerFromServer {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.training.callback.IBearingTrainingCallback$ITrainsite {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.training.callback.IBearingTrainingCallback$IBearingDataDelete {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.training.callback.IBearingTrainingCallback$ITrainsite {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.training.callback.IBearingTrainingCallback$IBearingBleSiteSignalMergeListener {*;}
+-keep public interface com.bosch.pai.ipsadmin.retail.pmadminlib.training.callback.IBearingTrainingCallback$ITrainBleLocation {*;}
+
+-keep public final class com.bosch.pai.ipsadmin.retail.pmadminlib.analytics.impl.AnalyticsImpl {
+    public static com.bosch.pai.ipsadmin.retail.pmadminlib.analytics.Analytics getInstance(java.lang.String);
+}
+
+-keep public class com.bosch.pai.ipsadmin.retail.pmadminlib.authentication.AuthenticationManager {
+    public void checkUserRole(android.content.Context, com.bosch.pai.ipsadmin.retail.pmadminlib.authentication.AuthenticationCallback);
+    public void changePassword(android.content.Context, java.lang.String, java.lang.String, com.bosch.pai.ipsadmin.retail.pmadminlib.authentication.AuthenticationCallback);
+    public void clearUserSession();
+}
+
+-keep public final class com.bosch.pai.ipsadmin.retail.pmadminlib.configuration.impl.ConfigurationsAPIImpl {
+    public static com.bosch.pai.ipsadmin.retail.pmadminlib.configuration.ConfigurationAPI getInstance();
+}
+
+-keep public final class com.bosch.pai.ipsadmin.retail.pmadminlib.detection.impl.BearingDetectionFromLocal {
+    public static synchronized com.bosch.pai.ipsadmin.retail.pmadminlib.detection.DetectionFromLocal getInstance(android.content.Context, com.bosch.pai.ipsadmin.retail.pmadminlib.detection.DetectionMode);
+}
+
+-keep public final class com.bosch.pai.ipsadmin.retail.pmadminlib.detection.impl.BearingDetectionFromServer {
+    public static synchronized com.bosch.pai.ipsadmin.retail.pmadminlib.detection.DetectionFromServer getInstance(android.content.Context);
+}
+
+-keep public final class com.bosch.pai.ipsadmin.retail.pmadminlib.training.impl.BearingTrainingImpl {
+    public static synchronized com.bosch.pai.ipsadmin.retail.pmadminlib.training.Training getInstance(android.content.Context,java.lang.String);
+}
+
+-keep public class com.bosch.pai.ipsadmin.retail.pmadminlib.Util {
+    public java.lang.String getSHA256Conversion(java.lang.String);
+    public com.bosch.pai.ipsadmin.retail.pmadminlib.Util$UserType getUserType();
+}
+
+#enums
+-keep public enum com.bosch.pai.ipsadmin.retail.pmadminlib.detection.DetectionMode {*;}
+-keep public enum com.bosch.pai.bearing.datamodel.apimodels.configuration.BearingConfiguration.SensorType {*;}
+-keep public enum com.bosch.pai.ipsadmin.retail.pmadminlib.Util$UserType {*;}
+-keep public enum com.bosch.pai.ipsadmin.retail.analytics.model.entryexit.IntervalDetails {*;}
+-keep public enum com.bosch.pai.ipsadmin.retail.pmadminlib.configuration.models.LOCATIONMODE {*;}
+-keep public enum com.bosch.pai.ipsadmin.retail.common.responses.REASON_CODE {*;}
+-keep public class com.bosch.pai.ipsadmin.retail.common.responses.StatusMessage {public *;}
+-keep public enum com.bosch.pai.ipsadmin.retail.common.responses.StatusMessage$STATUS {*;}
+-keepclassmembers enum com.bosch.pai.ipsadmin.retail.common.responses.StatusMessage$STATUS {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keep public enum com.bosch.pai.bearing.datamodel.apimodels.configuration.BearingConfiguration$DetectionLevel{
+    *;
+}
+
+-keep public enum com.bosch.pai.bearing.datamodel.apimodels.configuration.BearingConfiguration$SensorType {
+      *;
+}
+
+-keep public enum com.bosch.pai.bearing.config.ConfigurationSettings$ActiveMode {
+      *;
+}
+
+-keep public class com.bosch.pai.ipsadmin.retail.pmadminlib.training.models.ScannedBleDetails {public *;}
+-keep public class com.bosch.pai.ipsadmin.retail.pmadminlib.training.models.BearingSitedetails {public *;}
+-keep public class com.bosch.pai.ipsadmin.retail.analytics.model.dwelltime.LocationDwellTime  {public *;}
+-keep public class com.bosch.pai.ipsadmin.retail.analytics.model.heatmap.HeatMapDetail {public *;}
+-keep public class com.bosch.pai.ipsadmin.retail.analytics.responses.EntryExitResponse {public *;}
+-keep public class com.bosch.pai.ipsadmin.retail.analytics.responses.OfferAnalyticsResponse {public *;}
+-keep public class com.bosch.pai.ipsadmin.retail.configmodel.StoreConfig{public *;}
+-keep public class com.bosch.pai.ipsadmin.retail.pmadminlib.configuration.models.SiteConfiguration{public *;}
+-keep public class com.bosch.pai.ipsadmin.retail.pmadminlib.detection.models.SiteDetectionResponse{public *;}
+-keep public class com.bosch.pai.ipsadmin.retail.pmadminlib.detection.models.LocationDetectionResponse{public *;}
+-keep public class com.bosch.pai.ipsadmin.retail.configmodel.BaymapDetail {public *;}
+-keep public class com.bosch.pai.bearing.datamodel.bearingdatamodels.SnapshotObservation  {public *;}
+-keep public class com.bosch.pai.ipsadmin.retail.pmadminlib.training.models.SnapshotItemWithSensorType  {public *;}
+-keep public class com.bosch.pai.ipsadmin.retail.pmadminlib.common.CommonUtil {public *;}
+-keep public class com.bosch.pai.ipsadmin.retail.analytics.model.entryexit.MonthsDetails{public *;}
+-keep public class com.bosch.pai.ipsadmin.retail.analytics.model.entryexit.YearsDetails{public *;}
+-keep public class com.bosch.pai.ipsadmin.retail.analytics.model.entryexit.DayDetails{public *;}
+-keep public class com.bosch.pai.ipsadmin.retail.analytics.model.entryexit.EntryExitDetails{public *;}
+-keep public class com.bosch.pai.ipsadmin.retail.analytics.model.entryexit.HourDetails{public *;}
+-keep public class com.bosch.pai.bearing.datamodel.bearingdatamodels.SnapshotItem {public *;}
+-keep public class com.bosch.pai.ipsadmin.retail.configmodel.SiteLocationDetails {public *;}
+-keep public class com.bosch.pai.ipsadmin.retail.configmodel.LocationCateDeptBrand {public *;}
+-keep public class com.bosch.pai.ipsadmin.retail.configmodel.TimeFrequency {public *;}
+-keep public class com.bosch.pai.ipsadmin.retail.configmodel.LocationFrequency {public *;}
+
+#supportlib
+-dontwarn AppletFrame
+-dontwarn svm_toy

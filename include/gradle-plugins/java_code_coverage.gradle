@@ -1,0 +1,16 @@
+apply plugin: "jacoco"
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+        csv.enabled = true
+
+        xml.destination "${buildDir}/reports/jacocoXml"
+        csv.destination "${buildDir}/reports/jacocoCsv"
+        html.destination "${buildDir}/reports/jacocoHtml"
+    }
+    executionData = fileTree(dir: "$buildDir", includes: [
+            "jacoco/testDebugUnitTest.exec",
+            "outputs/code-coverage/connected/*coverage.ec"
+    ])
+}

@@ -1,0 +1,23 @@
+/** Android library modules **/
+include ':libraries:android:detection'
+//include ':libraries:android:ipsadmin'
+
+//include ':libraries:java:adtuningmodel'
+//include ':libraries:java:analyticsmodel'
+//include ':libraries:java:commonrm'
+//include ':libraries:java:configmodel'
+//include ':libraries:java:sessionrm'
+//include ':libraries:java:dbmodel'
+//include ':libraries:java:encodermodel'
+
+// Server components
+//include ':server:ProductOffer'
+//include ':server:Analytics'
+//include ':server:Session'
+//include ':server:Configuration'
+//include 'server:CrashHandler'
+
+
+// Android app modules
+//include ':apps:indoordetectionapp'
+//include ':apps:ipsadminapp'

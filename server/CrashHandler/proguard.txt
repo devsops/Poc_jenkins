@@ -1,0 +1,40 @@
+# Include java runtime classes
+-libraryjars  <java.home>/lib/rt.jar
+
+-keepdirectories
+
+-keepclasseswithmembers public class * { public static void main(java.lang.String[]);}
+
+-keepclasseswithmembers @org.springframework.stereotype.Controller public class ** { @org.springframework.web.bind.annotation.RequestMapping <methods>; }
+
+-keep @org.springframework.context.annotation.Configuration public class *
+
+-keepattributes Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,*Annotation*,EnclosingMethod
+
+-adaptresourcefilenames **.properties
+
+-adaptresourcefilecontents **.properties,META-INF/MANIFEST.MF,META-INF/spring.*
+
+-optimizations !method/inlining/*,!class/marking/final,!code/allocation/variable
+
+
+-keepclassmembers class * {
+    @org.springframework.boot.autoconfigure.EnableAutoConfiguration *;
+    @org.springframework.context.annotation.ComponentScan *;
+    @org.springframework.stereotype.Component *;
+    @org.springframework.beans.factory.annotation.Autowired *;
+    @org.springframework.beans.factory.annotation.Autowired <methods>;
+    @org.springframework.beans.factory.annotation.Value *;
+    @org.springframework.context.annotation.Configuration *;
+    @org.springframework.web.servlet.com.bezirk1.com.bosch.pai.retail.analytics.config.annotation.EnableWebMvc *;
+    @org.springframework.context.annotation.Bean <methods>;
+    @javax.annotation.PostConstruct <methods>;
+    @org.springframework.stereotype.Repository *;
+    @org.springframework.stereotype.Service *;
+    @org.mongodb.morphia.annotations.Entity *;
+    @org.mongodb.morphia.annotations.Id *;
+    @org.mongodb.morphia.annotations.Property *;
+    @org.mongodb.morphia.annotations.IndexOptions *;
+    @org.mongodb.morphia.annotations.Indexed *;
+
+  }

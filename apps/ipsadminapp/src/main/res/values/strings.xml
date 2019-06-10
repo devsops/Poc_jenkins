@@ -1,0 +1,218 @@
+<resources>
+    <!--<string name="app_name">Iero Admin</string>-->
+    <string name="userpassword">User Password</string>
+    <string name="username">UserName</string>
+    <string name="company">Company ID</string>
+    <string name="iero">IERO</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="ok">OK</string>
+    <string name="logIn_success">logIn_success</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="openDrawer">open_drawer</string>
+    <string name="closeDrawer">close_drawer</string>
+
+    <string name="nav_entryexit">EntryExit </string>
+    <string name="nav_offeranalytics">Offer </string>
+    <string name="nav_heatmap">Heatmap </string>
+    <string name="nav_dwelltime">Dwelltime </string>
+    <string name="nav_detection">Detection</string>
+    <string name="nav_training">Training</string>
+    <string name="nav_settings">Settings</string>
+    <string name="analytics">Analytics</string>
+
+
+    <string-array name="shopperstop_store_list">
+        <item>@string/select_store</item>
+        <item>114</item>
+        <item>163</item>
+        <item>1001</item>
+        <item>1002</item>
+        <item>TESTSTORE</item>
+    </string-array>
+
+    <string-array name="spar_store_list">
+        <item>@string/select_store</item>
+        <item>20001</item>
+        <item>20011</item>
+        <item>30005</item>
+        <item>20003</item>
+        <item>IOT</item>
+        <item>TESTSTORE</item>
+    </string-array>
+
+    <string name="nav_logout">Logout</string>
+    <string name="about_us">About Us</string>
+    <string name="locations_trained"> Locations Trained</string>
+    <string name="need_location_permission">Needs location Permission </string>
+    <string name="this_app_needs_location_permission">Grant location permission</string>
+    <string name="please_click_back_again_to_exit">Please click back again to exit.</string>
+    <string name="device_not_supported">Device not supported</string>
+    <string name="app_doesnot_work">Device doesnot support the app functionalities</string>
+    <string name="name_the_store">Site Name</string>
+    <string name="create_site">Create Site</string>
+    <string name="number_of_floors">Number of Floors</string>
+    <string name="select_store">Select your store</string>
+    <string name="select_signals">Select Signals</string>
+    <string name="select_all">Select All</string>
+    <string name="signal_merge">Signal Merge</string>
+    <string name="location_training">Location Training</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="location">Location</string>
+    <string name="welcome_to_bearing">Welcome to BEARING</string>
+    <string name="indoorlocation_training">Indoor Location Training!</string>
+    <string name="title_activity_site_location">SiteLocationActivity</string>
+    <string name="train_location1">Train Location</string>
+    <string name="train_location">Train</string>
+    <string name="enter_location_name">Location Name</string>
+    <string name="start">START</string>
+    <string name="train_the_section">Train Location</string>
+    <string name="guide_trainsection_one">Click start and walk around the training area while training is in progress.</string>
+    <string name="progress_value">0%</string>
+    <string name="training_progress">In Progress. . .</string>
+    <string name="training_completed">Training Completed</string>
+    <string name="edit">Edit</string>
+    <string name="retrain">Retrain</string>
+    <string name="delete">Delete</string>
+    <string name="configuration">Configuration</string>
+    <string name="signals">Signals</string>
+    <string name="rename">Rename</string>
+    <string name="sure">Sure</string>
+    <string name="cancel">Cancel</string>
+    <string name="are_you_sure">Are you sure ?</string>
+    <string name="this_item_is_nolonger_available">This item will be no longer available to you.</string>
+    <string name="this_item_name_is_permanently_going_to_change">This item name is permanetly going to change.</string>
+    <string name="storage">Storage</string>
+    <string name="changePassword">Change Password</string>
+    <string name="gatewayurl">Gateway URL</string>
+    <string name="bearing_storage_path">Bearing storage path</string>
+    <string name="internal">Internal</string>
+    <string name="external">External</string>
+    <string name="bearingurl">IPS URL</string>
+    <string name="bearing_storage_mode">Bearing Storage Mode</string>
+    <string name="proximityurl">Analytics URL</string>
+    <string name="start_site_detection">Start Site Detection</string>
+    <string name="start_location_detection">Start Location Detection</string>
+    <string name="stop_site_detection">Stop Site Detection</string>
+    <string name="stop_location_detection">Stop Location Detection</string>
+    <string name="upload_site_and_locations">Upload Site and Locations</string>
+    <string name="upload_site_and_locations_before_generating_classifier">Upload Site and Location before Generating Classifier</string>
+    <string name="site_training">Site Training</string>
+    <string name="minimum_three_locations_shouldbe_trained">Minimum three locations should be trained before Uploading.</string>
+    <string name="click_plus_for_training_site">Click \'+\' for Site Training\nClick download to sync with server!</string>
+    <string name="click_plus_for_training_location">Click \'+\' for Location Training.<!--\n Use upload icon to upload data to server.\n--></string>
+    <string name="downloading_site_and_locations">Downloading Site and Locations</string>
+    <string name="previous_data_will_be_nolonger_available_from_local">Are you sure local trained data will be no longer available after download.</string>
+    <string name="no_internet_conncetion">No Internet Connection.\n Please connect to Internet.</string>
+    <string name="upload_site_success">Uploaded Successfully</string>
+    <string name="nav_proximity_marketing">Proximity Marketing Fragment</string>
+
+    <string name="shopperstop_locationbaymap_fragment">ShopperstopLocationBaymapFragment</string>
+    <string name="category">Category</string>
+    <string name="brands">Brands</string>
+    <string name="departments">Departments</string>
+    <string name="save_location_baymap_to_server">Save Location Baymap</string>
+    <string name="department">Department</string>
+    <string name="categorys">Categories</string>
+    <string name="brand">Brand</string>
+    <string name="stop">STOP</string>
+    <string name="not_now">Not now</string>
+    <string name="proximity_marketing">Proximity Marketing</string>
+
+    <string name="do_you_want_to_save_this_baymap">Do you want to save this Baymap</string>
+    <string name="add_site_config">Site Configuration</string>
+    <string name="minimum_site_predict_count">Minimum site predict count</string>
+    <string name="minimim_location_probability">Minimum location probability</string>
+    <string name="submit">Submit</string>
+
+    <string name="save_bay_map">Save</string>
+    <string name="startdate">Start Date</string>
+    <string name="enddate">End Date</string>
+    <string name="select_store_id">Select Site</string>
+    <string name="nav_tuning_configuration">Tuning Configuration</string>
+    <string name="IPSMode">IPS Mode</string>
+    <string name="tuning_configuration">Tuning Configuration</string>
+    <string name="download">Download</string>
+    <string name="select_site_for_download">Select site for download</string>
+    <string name="clearbaymap">CLEAR</string>
+    <string name="crash_toast_text">IPS Admin Stopped Working</string>
+    <string name="seleted_baymap_clear">Selected Baymap data will be wiped off</string>
+    <string name="search_to_select">Search to select</string>
+    <string name="proximity_ip">Proximity Ip</string>
+    <string name="bearing_port">Bearing Port</string>
+    <string name="bearing_ip">Bearing Ip</string>
+    <string name="proximity_port">Proximity Port</string>
+
+    <string name="search">SEARCH</string>
+    <string name="search_for_categories">Search for categories</string>
+    <string name="search_for_departments">Search for departments</string>
+    <string name="search_for_brands">Search for brands</string>
+    <string name="bearing_url">Bearing URL</string>
+    <string name="site_config">PM Site Configuration</string>
+    <string name="store_configuration">Store Configuration</string>
+    <string name="store_sitename">Sitename</string>
+    <string name="store_storeid">Store ID</string>
+    <string name="actual_store_name">Actual Store Name</string>
+    <string name="store_snapshot_threshold">Snapshot Threshold</string>
+    <string name="upload_site_and_locations_before_generating_classifer">Upload site and location before generating classifier.</string>
+    <string name="spar_locationbaymap_fragment">Spar locationbaymap fragment</string>
+    <string name="enter_bay_value">Enter bay value</string>
+    <string name="baymap_data_willbe_cleared">Baymap data will be cleared</string>
+    <string name="proximity_url">Proximity Url</string>
+    <string name="bearing_server_url">Bearing Server Url</string>
+    <string name="upload">Upload</string>
+    <string name="upload_site">Do you want to upload site</string>
+    <string name="al_joni_imgv">Joni</string>
+    <string name="do_you_want_to_upload_this_location">Do you want to upload this location</string>
+    <string name="company_image">Company Image</string>
+    <string name="search_icon">Search icon</string>
+    <string name="search_catedeptbrand">Search Categories Departments and Brands</string>
+
+    <string name="search_categories">Search Categories</string>
+    <string name="search_departments">Search Departments </string>
+    <string name="search_brands">Search Brands </string>
+    <string name="trainingmode">Training Mode</string>
+
+    <string name="philipse">Philipse</string>
+    <string name="capture_the_diagonal_points">Capture the diagonal points</string>
+    <string name="get_first_corner_coordinates">First corner coordinates</string>
+    <string name="get_second_corner_coordinates">Second corner coordinates</string>
+    <string name="capture_diagonal_coordinates">Capture diagonal coordinates</string>
+    <string name="philipse_delay">Philipse delay</string>
+    <string name="philipseurl">Philipse URL</string>
+    <string name="philipseUrl">Philipse URL</string>
+    <string name="philipse_server_url">Philipse Service url</string>
+    <string name="philipse_ip">Philipse Ip</string>
+    <string name="philipse_port">Philipse Port</string>
+    <string name="bearing">Bearing</string>
+    <string name="upload_site_and_locations_and_trigger_generate_model">Upload Site and Locations and On Success Generate Model</string>
+    <string name="wifi">WIFI</string>
+    <string name="ble">BLE</string>
+    <string name="site_rssi_thresh_for_detection">Site RSSI Thresh For Detecton</string>
+    <string name="select_the_mode_of_traiining">Mode of Training</string>
+    <string name="select_the_ble">Select BLE ID</string>
+    <string name="enter_ble_threshold">Enter BLE Threshold</string>
+    <string name="merge">Merge</string>
+    <string name="editrssi">Edit Rssi</string>
+    <string name="minimum_three_locations_shouldbe_trained_with_wifi_sensor">Minimum three locations should be trained with wifi sensor before Uploading.</string>
+    <string name="filter_beacon">Filter Estimote beacon</string>
+    <string name="save">SAVE</string>
+    <string name="wifitrained">wifitrained</string>
+    <string name="bletrained">bletrained</string>
+    <string name="both">BOTH</string>
+    <string name="time_based_frequency">Time Based Frequency</string>
+    <string name="add_more">Add Another</string>
+    <string name="location_based_frequency">Location Based Frequency</string>
+    <string name="max_offer_count">Max offer count</string>
+    <string name="note_hint">*Note: App will be logged out after changing password. Any data which is not uploaded will be lost.\n\nHint: Password should contain Minimum 8 characters, at least one uppercase letter, one lowercase letter, one number and one special character</string>
+
+    <string-array name="training_modes">
+        <item>Wi-Fi</item>
+        <item>BLE</item>
+        <item>Philipse</item>
+    </string-array>
+
+</resources>

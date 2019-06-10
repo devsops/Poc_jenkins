@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/addsite"
+        android:icon="@drawable/ic_add_site_24dp"
+        android:orderInCategory="100"
+        android:title=""
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/download_siteand_locations"
+        android:icon="@drawable/ic_file_download_black_24dp"
+        android:orderInCategory="100"
+        android:title=""
+        app:showAsAction="always" />
+
+
+    <item
+        android:id="@+id/detectionmode"
+        android:icon="@drawable/ic_settings_white_24dp"
+        android:orderInCategory="100"
+        android:title=""
+        android:visible="false"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/tuningcongig"
+        android:icon="@drawable/ic_file_upload_black_24dp"
+        android:orderInCategory="100"
+        android:title=""
+        android:visible="false"
+        app:showAsAction="always" />
+
+</menu>

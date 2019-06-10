@@ -1,0 +1,49 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.artifactory'
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        bezirkPublication(MavenPublication) {
+
+            artifact "${project.buildDir}/outputs/aar/${project.name}-release.aar"
+
+            pom.withXml {
+                def dependencies = asNode().appendNode('dependencies')
+                configurations.getByName("releaseCompileClasspath").getResolvedConfiguration().getFirstLevelModuleDependencies().each {
+                    def dependency = dependencies.appendNode('dependency')
+                    dependency.appendNode('groupId', it.moduleGroup)
+                    dependency.appendNode('artifactId', it.moduleName)
+                    dependency.appendNode('version', it.moduleVersion)
+
+                    if ( it.moduleName == "comms" || it.moduleName == "detection" ) {
+                        dependency.appendNode('type', 'aar')
+                    }
+
+                    if ( it.moduleName == "sessionrm"||it.moduleName == "adtuningmodel") {
+                        dependency.appendNode('type', 'jar')
+                }
+            }
+        }
+
+
+        }
+    }
+}
+
+artifactory {
+    contextUrl = 'http://IEROPRODVM02LB-74abf6516f00e28c.elb.ap-south-1.amazonaws.com/artifactory/'
+    publish {
+        repository {
+            repoKey = 'IoTMarketPlace_Release'
+            // The Artifactory repository key to publish to
+            username = "${artifactory_ips_admin}" // The publisher user name
+            password = "${artifactory_ips_admin_password}" // The publisher password
+        }
+        defaults {
+            publications('bezirkPublication')
+            publishArtifacts = true
+            publishPom = true
+        }
+    }
+}

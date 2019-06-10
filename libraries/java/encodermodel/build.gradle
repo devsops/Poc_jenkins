@@ -1,0 +1,10 @@
+apply plugin: 'java'
+
+group = 'com.bosch.pai.retail.core.encodermodel'
+
+dependencies {
+    testCompile group:'junit',name:'junit',version:'4.12'
+}
+
+
+

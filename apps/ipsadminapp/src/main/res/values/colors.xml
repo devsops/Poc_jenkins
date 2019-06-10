@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#469985</color>
+    <color name="colorPrimaryDark">#3f8977</color>
+    <color name="colorAccent">#469985</color>
+
+    <color name="loginpage_background">#F5F5F5</color>
+
+
+    <color name="cat_dept_brand_bg">#19198c</color>
+
+
+    <color name="tabbutton_bg">#0079FF</color>
+
+    <color name="detection_button_color">#24D278</color>
+</resources>

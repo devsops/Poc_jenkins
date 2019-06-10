@@ -1,0 +1,23 @@
+commit facd5557bcf58d561f175eef2f765d1e4c54c1d7
+Author: gopi <gopinath.mohan@mobinius.com>
+Date:   Thu May 30 11:25:18 2019 +0530
+
+    two files added for release job
+
+diff --git a/artipub.sh b/artipub.sh
+new file mode 100644
+index 0000000..a1c3355
+--- /dev/null
++++ b/artipub.sh
+@@ -0,0 +1,8 @@
++#!/bin/bash
++while read line; do
++  if [[ $line =~ release ]] ; then
++  echo "push to artifactory $line"
++  else
++  echo "not maching"
++  fi
++done <commitinfo.txt
+diff --git a/commitinfo.txt b/commitinfo.txt
+new file mode 100644
+index 0000000..e69de29

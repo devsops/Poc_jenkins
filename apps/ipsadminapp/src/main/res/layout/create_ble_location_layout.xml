@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="20dp"
+    android:background="@android:color/white">
+
+    <TextView
+        android:id="@+id/train_location_text_ble"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:gravity="center"
+        android:text="@string/train_location1"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/locationname_ble"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/train_location_text_ble"
+        android:focusable="true"
+        android:hint="@string/enter_location_name"
+        android:maxLines="1"
+        android:padding="15dp"
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@android:color/darker_gray" />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/alreadymappedble"
+        android:layout_width="match_parent"
+        android:textColor="@color/colorPrimary"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/locationname_ble"
+        android:layout_margin="15dp"
+        android:gravity="center"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/filter_beacon_layout_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/alreadymappedble"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/filter_beacon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="80"
+            android:gravity="center_vertical"
+            android:text="@string/filter_beacon"
+            android:textSize="19sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/select_the_bleid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/filter_beacon_layout_location"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="@string/select_the_ble"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/bleidslist"
+        android:layout_width="match_parent"
+        android:layout_height="@android:dimen/thumbnail_height"
+        android:layout_below="@+id/select_the_bleid"
+        android:padding="5dp" />
+
+    <EditText
+        android:id="@+id/threshold_ble"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bleidslist"
+        android:focusable="true"
+        android:hint="@string/enter_ble_threshold"
+        android:inputType="numberSigned"
+        android:maxLength="4"
+        android:maxLines="1"
+        android:padding="15dp"
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_below="@+id/threshold_ble"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <Button
+            android:id="@+id/trainlocationble"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/loginbackground"
+            android:focusable="true"
+            android:text="@string/train_location"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+</RelativeLayout>

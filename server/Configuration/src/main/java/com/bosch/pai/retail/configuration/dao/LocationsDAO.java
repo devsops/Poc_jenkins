@@ -1,0 +1,121 @@
+package com.bosch.pai.retail.configuration.dao;
+
+import com.bosch.pai.retail.common.responses.StatusMessage;
+import com.bosch.pai.retail.configmodel.SiteLocations;
+import com.bosch.pai.retail.common.Constants;
+import com.mongodb.BasicDBObject;
+import com.mongodb.WriteResult;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Repository;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+
+/**
+ * Created by sjn8kor on 3/9/2018.
+ */
+
+@Repository
+public class LocationsDAO {
+
+    private static final String IOS_COLLECTION_END_NAME = "locations_Ios";
+    private static final String ANDROID_COLLECTION_END_NAME = "locations";
+
+    private static final String SITE = "siteName";
+    private static final String STORE = "storeId";
+    private static final String LOCATIONS = "locations";
+
+    private final MongoOperations mongoOperations;
+
+    private final Logger logger = LoggerFactory.getLogger(LocationsDAO.class);
+
+    @Autowired
+    public LocationsDAO(MongoOperations mongoOperations) {
+        this.mongoOperations = mongoOperations;
+    }
+
+    private String getCollectionName(String company, String platform) {
+        String finalCollectionName = "";
+        if (platform != null) {
+            switch (platform) {
+                case Constants.PLATFORM_ANDROID:
+                    finalCollectionName = (company + "_" + ANDROID_COLLECTION_END_NAME).toUpperCase();
+                    break;
+                case Constants.PLATFORM_IOS:
+                    finalCollectionName = (company + "_" + IOS_COLLECTION_END_NAME).toUpperCase();
+                    break;
+                default:
+                    finalCollectionName = (company + "_" + ANDROID_COLLECTION_END_NAME).toUpperCase();
+                    break;
+            }
+        } else {
+            finalCollectionName = (company + "_" + ANDROID_COLLECTION_END_NAME).toUpperCase();
+        }
+        return finalCollectionName;
+    }
+
+    public List<SiteLocations> getAllLocations(String companyId, String storeId, String siteName, String platform) {
+        final String finalCollectionName = getCollectionName(companyId, platform);
+
+        Query query;
+        if (siteName == null) {
+            query = Query.query(Criteria.where(STORE).is(storeId));
+        } else {
+            query = Query.query(Criteria.where(STORE).is(storeId).and(SITE).is(siteName));
+        }
+
+        try {
+            List<SiteLocations> locationModels = mongoOperations.find(query, SiteLocations.class, finalCollectionName);
+
+
+            if (locationModels != null && !locationModels.isEmpty()) {
+                locationModels.forEach(siteLocation -> siteLocation.setCompanyId(companyId));
+            } else {
+                locationModels = Collections.emptyList();
+            }
+            logger.debug("result of getAllLocations operation : {}" , locationModels);
+
+            return locationModels;
+        } catch (Exception e) {
+            logger.error("error while getAllLocations " + e.getMessage(), e);
+            return Collections.emptyList();
+        }
+    }
+
+    public StatusMessage saveOrUpdateLocations(String companyId, String storeId, String siteName, Set<String> locations, String platform) {
+        final String finalCollectionName = getCollectionName(companyId, platform);
+
+        final BasicDBObject query = new BasicDBObject();
+        query.put(STORE, storeId);
+        query.put(SITE, siteName);
+
+        final BasicDBObject update = new BasicDBObject();
+        update.put(STORE, storeId);
+        update.put(SITE, siteName);
+        update.put(LOCATIONS, locations);
+
+        try {
+
+            final WriteResult writeResult = mongoOperations.getCollection(finalCollectionName)
+                    .update(query, update, true, false);
+
+            logger.debug("result of saveOrUpdateLocations operation : {}" , writeResult);
+
+            if (writeResult.getN() < 1) {
+                return new StatusMessage(StatusMessage.STATUS.FAILURE, "failure");
+            }
+        } catch (Exception e) {
+            logger.error("error while saveOrUpdateLocations " + e.getMessage(), e);
+            return new StatusMessage(StatusMessage.STATUS.FAILURE, "failure");
+        }
+
+        return new StatusMessage(StatusMessage.STATUS.SUCCESS, "success");
+    }
+}

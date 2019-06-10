@@ -1,0 +1,94 @@
+apply plugin: 'org.sonarqube'
+apply plugin: 'jacoco'
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        jcenter {
+            url "http://jcenter.bintray.com/"
+        }
+        mavenCentral()
+        maven {
+            url "http://dl.bintray.com/vigidroid/maven"
+        }
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+        flatDir { dirs 'libs' }
+        //google()
+    }
+
+    dependencies {
+       // classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6.1'
+        classpath ':dexguard:'
+     //   classpath(group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: '4.5.0')
+        classpath(group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: '4.6.0')
+        //
+        classpath 'org.codehaus.groovy:groovy-all:2.4.12'
+        //
+        classpath 'org.ajoberstar:gradle-jacoco:0.1.0'
+    }
+}
+
+
+allprojects {
+    version = "1.0-pipelineTest"
+
+    /* tasks.withType(JavaCompile) {
+         configure(options) {
+             incremental = true
+         }
+         options.compilerArgs << "-Xlint:deprecation"
+     }
+ */
+    repositories {
+        google()
+        jcenter()
+        mavenLocal()
+        mavenCentral()
+
+        jcenter {
+            url "http://jcenter.bintray.com/"
+        }
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+        maven {
+            url "http://ieroprodvm02lb-74abf6516f00e28c.elb.ap-south-1.amazonaws.com/artifactory/IoTMarketPlace_Release/"
+            credentials {
+                username "${artifactory_ips_admin}"
+                password "${artifactory_ips_admin_password}"
+            }
+        }
+    }
+
+}
+
+// Sonarqube properties
+sonarqube {
+    properties {
+        property "sonar.host.url", "${sonar_host}"
+        property "sonar.projectKey", "IndoorPositioningSDK"
+        property "sonar.projectName", "IndoorPositioningSDK"
+        property "sonar.projectDescription", "IndoorPositioningSDK used for Hackathon"
+        property "sonar.projectVersion", "${version}"
+        property "sonar.projectBaseDir", "."
+        //property "sonar.sources", "." // commented to check duplicate code issue
+        property "sonar.exclusions", "**/build/**/.class,**/build/**/*.java,**/build/**/*package-info.java,**/indoordetection/**,**/proximitymarketingadmin/**"
+        property "sonar.language", "java"
+        property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.profile", "BezirkIoTProfile"
+        property "sonar.login", "${sonar_login}"
+        property "sonar.password", "${sonar_password}"
+        property "sonar.android.lint.report", "./build/outputs/lint-results.xml"
+        //property "sonar.core.codeCoveragePlugin", "jacoco"
+        //property "sonar.jacoco.reportPath", "build/jacoco/testDebugUnitTest.exec"
+        property "sonar.dynamicAnalysis", "reuseReports"
+        property "sonar.binaries", "build"
+        property "sonar.java.binaries", "build"
+        //property "sonar.junit.reportsPath", "build/test-results/debug"
+    }
+
+
+}
